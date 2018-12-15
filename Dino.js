@@ -1,4 +1,4 @@
-var LivingCreature = require("./LivingCreature")
+var LivingCreature = require("./LivingCreature.js");
 module.exports =class Dinozavr extends LivingCreature{
     
     getNewDirections() {
@@ -21,7 +21,8 @@ module.exports =class Dinozavr extends LivingCreature{
     }
     mult() {
        
-        var empty = random(this.chooseCell(0));
+        var gr = this.choosecell(0);
+        var empty = gr[Math.floor(Math.random()*gr.length)]
         if (empty && this.energy > 20) {
 
 
@@ -36,8 +37,8 @@ module.exports =class Dinozavr extends LivingCreature{
         }
     }
     move() {
-        var empty = random(this.chooseCell(0));
-        
+        var gr = this.choosecell(0);
+        var empty = gr[Math.floor(Math.random()*gr.length)]
         if (empty) {
             this.energy--;
             var newX = empty[0];
@@ -51,8 +52,10 @@ module.exports =class Dinozavr extends LivingCreature{
     eat() {
        
         this.multiply++;    
-        var gr = random(this.chooseCell(2));
-        var df = random(this.chooseCell(3));
+        var rforg = this.choosecell(2);
+        var gr = rforg[Math.floor(Math.random()*rforg.length)]
+        var rforx = this.choosecell(3);
+        var df = rforx[Math.floor(Math.random()*rforx.length)]
         if (gr && this.multiply > 3 ) { 
             this.energy++;
             var newX = gr[0];
@@ -87,9 +90,12 @@ module.exports =class Dinozavr extends LivingCreature{
     kataxel(){
         if(this.energy >= 15){
             
-            var empty = random(this.chooseCell(1));
-            var empty1 = random(this.chooseCell(2));
-            var empty2 = random(this.chooseCell(3));
+            var gr = this.choosecell(1);
+            var empty = gr[Math.floor(Math.random()*gr.length)]
+            var gr1 = this.choosecell(2);
+             var empty = gr1[Math.floor(Math.random()*gr1.length)]
+             var gr2 = this.choosecell(3);
+             var empty = gr2[Math.floor(Math.random()*gr2.length)]
             this.energy-=4;
             if (empty) {
                 var newX = empty[0];

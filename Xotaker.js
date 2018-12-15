@@ -1,4 +1,4 @@
-var LivingCreature = require("./LivingCreature");
+var LivingCreature = require("./LivingCreature.js");
 module.exports = class Xotaker extends LivingCreature{
     getNewDirections() {
         this.directions = [
@@ -19,7 +19,9 @@ module.exports = class Xotaker extends LivingCreature{
       return  super.choosecell(ch);
     }
     mult() {
-        var empty = random(this.chooseCell(0));
+        var randitems = this.choosecell(0);
+        var empty = randitems[Math.floor(Math.random()*randitems.length)]
+        
         if (empty && this.energy >= 8) {
             var x = empty[0]
             var y = empty[1]
@@ -30,7 +32,9 @@ module.exports = class Xotaker extends LivingCreature{
         }
     }
     move() {
-        var empty = random(this.chooseCell(0))
+        var randitems = this.choosecell(0);
+        var empty = randitems[Math.floor(Math.random()*randitems.length)]
+        
         this.energy--;
         if (empty) {
             var newX = empty[0]
@@ -43,7 +47,8 @@ module.exports = class Xotaker extends LivingCreature{
     }
     eat() {
         this.multiply++
-        var gr = random(this.chooseCell(1))
+        var ra = this.choosecell(1)
+        var gr = ra[Math.floor(Math.random()*ra.length)]
         if (gr && this.multiply > 5) {
             this.energy += 2;
             var newX = gr[0]

@@ -68,7 +68,7 @@ function setup() {
 
 }
 
-function draw() {
+function drawmatrix(matrix) {
 
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
@@ -95,34 +95,8 @@ function draw() {
       
         }
     }
-    for (var i in grassArr) {
-       grassArr[i].mult();
-    }
-    for (var i in xotakerArr) {
-        xotakerArr[i].mult();
-        xotakerArr[i].eat();
-      xotakerArr[i].move();
-     xotakerArr[i].die();
-    }
-    for(var i in gishatichArr){
-        gishatichArr[i].mult();
-        
-        gishatichArr[i].move();
-       gishatichArr[i].eat();
-        gishatichArr[i].die();
-    }
-    for( var i in dinoArr){
-        dinoArr[i].eat();
-        dinoArr[i].move();
-        dinoArr[i].mult();
-        dinoArr[i].kataxel();
-
-        dinoArr[i].die();
-    }
-    for(var i in jurArr){
-        jurArr[i].mult();
-        jurArr[i].tsunami();
-    }
+ 
  
 }
 
+socket.on("matrix",drawmatrix)

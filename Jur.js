@@ -1,4 +1,4 @@
-var LivingCreature = require("./LivingCreature")
+var LivingCreature = require("./LivingCreature.js");
 module.exports = class Jur extends LivingCreature{
     getNewDirections() {
         this.directions = [
@@ -20,7 +20,8 @@ module.exports = class Jur extends LivingCreature{
     }
     mult() {
         this.multiply++
-         var empty = random(this.chooseCell(0));
+        var gg = this.choosecell(0);
+         var empty = gg[Math.floor(Math.random()*gg.length)];
          if (empty && this.multiply > 6) {
  
  
@@ -36,17 +37,22 @@ module.exports = class Jur extends LivingCreature{
          }
      }
      tsunami(){
-        var eee = random(this.chooseCell1(1));
-        var eee1 = random(this.chooseCell1(2));
-        var eee2 = random(this.chooseCell1(3));
-        var eee3= random(this.chooseCell1(4));
-        var eee4 = random(this.chooseCell1(0));
+         var Choosefood = this.choosecell(1);
+        var eee = Choosefood[Math.floor(Math.random()*Choosefood.length)];
+        var Choosefood1 = this.choosecell(2);
+        var eee1 = Choosefood1[Math.floor(Math.random()*Choosefood1.length)];
+        var Choosefood2 = this.choosecell(3);
+        var eee2 = Choosefood2[Math.floor(Math.random()*Choosefood2.length)];
+        var Choosefood3 = this.choosecell(4);
+        var eee3= Choosefood3[Math.floor(Math.random()*Choosefood3.length)];
+        var Choosefood4= this.choosecell(0);
+        var eee4 = Choosefood4[Math.floor(Math.random()*Choosefood4.length)];
     if(this.multiply && eee >= 10){
        var newX = empty[0];
        var newY = empty[1];
        matrix[newY][newX] = 5;
        var newgr = new Jur(newX, newY, 1);
-       jurArr.push(newgr)
+       jurArr.push(newgr);
 
 
     }

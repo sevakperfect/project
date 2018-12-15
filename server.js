@@ -1,15 +1,23 @@
+ LivingCreature = require("./LivingCreature.js");
+ Grass = require("./Grass.js");
+ Xotaker = require("./Xotaker.js");
+ Gishatich = require("./Gishatich.js");
+ Jur = require("./Jur.js");
+ Dinozavr = require("./Dino.js");
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 
+
+ 
 app.use(express.static("."));
 app.get('/', function (req, res) {
     res.redirect('index.html');
 });
 server.listen(3000);
-var matrix = [ 
+ matrix = [ 
     [1,1,1,1,1,2,2,1,0,0,4,2,0,0,1,1,1,1,1,1],
     [1,1,2,0,1,0,0,1,1,1,0,1,1,1,1,1,0,2,0,1],
     [1,1,2,0,1,1,1,1,1,0,0,0,0,0,1,0,0,0,1,1],
@@ -36,11 +44,11 @@ var matrix = [
 
 
 
-var grassArr = [];
-var xotakerArr = [];
-var gishatichArr = [];
-var dinoArr = [];
-var jurArr = [];
+ grassArr = [];
+ xotakerArr = [];
+ gishatichArr = [];
+ dinoArr = [];
+ jurArr = [];
 
   
     
@@ -74,7 +82,7 @@ var jurArr = [];
 
 
 
-function serverayinDraw() {
+function serverayinDraw(matrix) {
 
     
     for (var i in grassArr) {
@@ -105,6 +113,6 @@ function serverayinDraw() {
         jurArr[i].mult();
         jurArr[i].tsunami();
     }
- 
+ io.sockets.emit("matrix",matrix)
 }
 setInterval(serverayinDraw,100);

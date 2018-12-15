@@ -1,5 +1,5 @@
-var LivingCreature = require("./LivingCreature")
-module.exports = class Gishatich extends LivingCreature{
+var LivingCreature = require("./LivingCreature.js");
+module.exports = class Gishatich extends LivingCreature {
     getNewDirections() {
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -12,14 +12,15 @@ module.exports = class Gishatich extends LivingCreature{
             [this.x + 1, this.y + 1]
         ];
     }
-    
-    choosecell(ch){
-    
+
+    choosecell(ch) {
+
         this.getNewDirections();
-      return  super.choosecell(ch);
+        return super.choosecell(ch);
     }
     mult() {
-        var empty = random(this.chooseCell(0));
+        var gr = this.choosecell(0);
+        var empty = gr[Math.floor(Math.random() * gr.length)]
         if (empty && this.energy >= 24) {
             var x = empty[0]
             var y = empty[1]
@@ -30,7 +31,8 @@ module.exports = class Gishatich extends LivingCreature{
         }
     }
     move() {
-        var empty = random(this.chooseCell(0))
+        var gr = this.choosecell(0);
+        var empty = gr[Math.floor(Math.random() * gr.length)]
         this.energy--;
         if (empty) {
             var newX = empty[0]
@@ -43,8 +45,10 @@ module.exports = class Gishatich extends LivingCreature{
     }
     eat() {
         this.multiply++
-        var gr = random(this.chooseCell(1))
-        var xt = random(this.chooseCell(2))
+        var rforg = this.choosecell(1);
+        var gr = rforg[Math.floor(Math.random() * rforg.length)]
+        var rforx = this.choosecell(2);
+        var xt = rforx[Math.floor(Math.random() * rforx.length)]
         if (gr && this.multiply > 5) {
             this.energy += 1;
             var newX = gr[0]
