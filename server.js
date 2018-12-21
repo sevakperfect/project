@@ -117,7 +117,7 @@ function exanak() {
     }
     io.sockets.emit("weather", weather)
 }
-setInterval(exanak, 10000);
+setInterval(exanak, 6000);
 
 
 function serverayinDraw() {
@@ -154,3 +154,10 @@ function serverayinDraw() {
     io.sockets.emit("matrix", matrix)
 }
 setInterval(serverayinDraw, 100);
+var obj = {"info":[] };
+function main(){
+    var file = "Statistic.json"
+    obj.info.push({"Cnvac xotakerneri qanaky": CnvacXotaker,"Cnvac Gishatichneri qanaky": CnvacGishatich});
+    fs.writeFileSync(file, JSON.stringify(obj));
+}
+setInterval(main,1000)

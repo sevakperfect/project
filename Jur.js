@@ -1,4 +1,5 @@
 var LivingCreature = require("./LivingCreature.js");
+weather = "Garun"
 module.exports = class Jur extends LivingCreature{
     getNewDirections() {
         this.directions = [
@@ -33,7 +34,9 @@ module.exports = class Jur extends LivingCreature{
              var newgr = new Jur(newX, newY, 1);
              jurArr.push(newgr)
              
- 
+            if(weather == "Dzmer"){
+                return
+            }
          }
      }
      tsunami(){
@@ -91,6 +94,9 @@ module.exports = class Jur extends LivingCreature{
        jurArr.push(newgr)
 
 
+    }
+    if(weather == "Dzmer"){
+        return;
     }
    }
    camaqel(){

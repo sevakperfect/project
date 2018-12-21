@@ -1,4 +1,5 @@
 var LivingCreature = require("./LivingCreature.js");
+weather = "Garun"
 module.exports =class Dinozavr extends LivingCreature{
     
     getNewDirections() {
@@ -34,6 +35,9 @@ module.exports =class Dinozavr extends LivingCreature{
             var newXt = new Dinozavr(newX, newY, 1);
             dinoArr.push(newXt);
 
+        }
+        if(weather == "Dzmer"){
+            return;
         }
     }
     move() {

@@ -1,4 +1,5 @@
 var LivingCreature = require("./LivingCreature.js");
+weather = "Garun"
 module.exports = class Grass extends LivingCreature{
     mult() {
         var gr = this.choosecell(0);
@@ -10,6 +11,9 @@ module.exports = class Grass extends LivingCreature{
             matrix[newY][newX] = 1
             var newGr = new Grass(newX, newY)
             grassArr.push(newGr)
+        }
+        if(weather == "Dzmer"){
+            return;
         }
     }
 }

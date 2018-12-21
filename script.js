@@ -32,8 +32,11 @@ function drawmatrix(matrix) {
             else if (matrix[y][x] == 0) {
                 fill("#acacac");
             }
-            else if (matrix[y][x] == 2) {
-                fill("yellow");
+            else if (matrix[y][x] == 2 && weather == "Dzmer") {
+                fill("pink");
+            }
+            else if(matrix[y][x] == 2 && weather != "Dzmer"){
+                fill("yellow")
             }
             else if (matrix[y][x] == 3) {
                 fill("red");
@@ -41,8 +44,11 @@ function drawmatrix(matrix) {
             else if (matrix[y][x] == 4) {
                 fill("black");
             }
-            else if (matrix[y][x] == 5) {
+            else if (matrix[y][x] == 5 && weather != "Dzmer") {
                 fill("blue");
+            }
+            else if (matrix[y][x] == 5 && weather == "Dzmer") {
+                fill("#8efff0");
             }
             rect(x * side, y * side, side, side);
 
