@@ -8,7 +8,7 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-
+var fs = require('fs');
 
 
 
@@ -72,7 +72,11 @@ xotakerArr = [];
 gishatichArr = [];
 dinoArr = [];
 jurArr = [];
-
+CnvacGishatich = 0;
+CnvacXotaker = 0;
+CnvacXot = 0;
+emergedWatter = 0;
+BornedDino = 0;
 
 
 for (var y = 0; y < matrix.length; y++) {
@@ -157,7 +161,7 @@ setInterval(serverayinDraw, 100);
 var obj = {"info":[] };
 function main(){
     var file = "Statistic.json"
-    obj.info.push({"Cnvac xotakerneri qanaky": CnvacXotaker,"Cnvac Gishatichneri qanaky": CnvacGishatich});
-    fs.writeFileSync(file, JSON.stringify(obj));
+    obj.info.push({"Num of borned Grasseater": CnvacXotaker,"Num of borned Predators": CnvacGishatich, "Num of emerged Grass": CnvacXot," Num of emerged Watter": emergedWatter,"Num of borned Dinos":BornedDino});
+    fs.writeFileSync(file, JSON.stringify(obj,null,4));
 }
 setInterval(main,1000)

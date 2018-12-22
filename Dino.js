@@ -1,5 +1,5 @@
 var LivingCreature = require("./LivingCreature.js");
-weather = "Garun"
+
 module.exports =class Dinozavr extends LivingCreature{
     
     getNewDirections() {
@@ -21,24 +21,19 @@ module.exports =class Dinozavr extends LivingCreature{
       return  super.choosecell(ch);
     }
     mult() {
-       
+       if(weather != "Dzmer"){
         var gr = this.choosecell(0);
         var empty = gr[Math.floor(Math.random()*gr.length)]
         if (empty && this.energy > 20) {
-
-
-
-
-            var newX = empty[0];
+             var newX = empty[0];
             var newY = empty[1];
             matrix[newY][newX] = 4;
             var newXt = new Dinozavr(newX, newY, 1);
+            BornedDino++;
             dinoArr.push(newXt);
 
         }
-        if(weather == "Dzmer"){
-            return;
-        }
+    }
     }
     move() {
         var gr = this.choosecell(0);

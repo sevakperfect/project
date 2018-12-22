@@ -1,5 +1,5 @@
 var LivingCreature = require("./LivingCreature.js");
-weather = "Garun"
+
 module.exports = class Gishatich extends LivingCreature {
     getNewDirections() {
         this.directions = [
@@ -19,21 +19,32 @@ module.exports = class Gishatich extends LivingCreature {
         this.getNewDirections();
         return super.choosecell(ch);
     }
+   
     mult() {
         var gr = this.choosecell(0);
         var empty = gr[Math.floor(Math.random() * gr.length)]
-        if (empty && this.energy >= 24) {
-            var x = empty[0]
-            var y = empty[1]
-            matrix[y][x] = 3
-            var newXt = new Gishatich(x, y)
-            gishatichArr.push(newXt)
-            this.energy = 12
-        }
-        if(weather == "Dzmer"){
-            if (empty && this.energy >= 24) {
-            
-                setInterval(mult,100000000);
+        if(empty)
+        {
+            if(weather == "Dzmer" && this.energy >= 40)
+            {
+                var x = empty[0]
+                var y = empty[1]
+                matrix[y][x] = 3
+                var newXt = new Gishatich(x, y);
+                CnvacGishatich++;
+                gishatichArr.push(newXt)
+                this.energy = 12
+            }
+
+            else if(this.energy >= 24 && weather != 'Dzmer')
+            {
+                var x = empty[0]
+                var y = empty[1]
+                matrix[y][x] = 3
+                var newXt = new Gishatich(x, y);
+                CnvacGishatich++;
+                gishatichArr.push(newXt)
+                this.energy = 12
             }
         }
     }

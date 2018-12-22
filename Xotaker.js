@@ -1,5 +1,5 @@
 var LivingCreature = require("./LivingCreature.js");
-weather = "Garun"
+
 module.exports = class Xotaker extends LivingCreature{
     getNewDirections() {
         this.directions = [
@@ -27,7 +27,8 @@ module.exports = class Xotaker extends LivingCreature{
             var x = empty[0]
             var y = empty[1]
             matrix[y][x] = 2
-            var newXt = new Xotaker(x, y)
+            var newXt = new Xotaker(x, y);
+            CnvacXotaker++;
             xotakerArr.push(newXt)
             this.energy = 6
         }
@@ -67,9 +68,7 @@ module.exports = class Xotaker extends LivingCreature{
             this.y = newY
             this.x = newX
         }
-        if(weather == "Dzmer"){
-            
-        }
+        
     }
     die() {
         if (this.energy <= 0) {
