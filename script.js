@@ -1,5 +1,6 @@
 var socket = io.connect('http://localhost:3000');
 var socket = io();
+var button = document.getElementsByClassName('weather');
 weather = "Garun";
 
 var side = 10;
@@ -58,4 +59,7 @@ function drawmatrix(matrix) {
 
 }
 
-socket.on("matrix", drawmatrix)
+function winterF(){
+    io.sockets.emit("poxir exanak@",weather);
+}
+button.onclick = winterF;

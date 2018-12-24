@@ -164,4 +164,5 @@ function main(){
     obj.info.push({"Num of borned Grasseater": CnvacXotaker,"Num of borned Predators": CnvacGishatich, "Num of emerged Grass": CnvacXot," Num of emerged Watter": emergedWatter,"Num of borned Dinos":BornedDino});
     fs.writeFileSync(file, JSON.stringify(obj,null,4));
 }
-setInterval(main,1000)
+setInterval(main,1000);
+socket.on("poxir exanak@",exanak);
