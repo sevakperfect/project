@@ -1,6 +1,7 @@
+
+weather = "Garun";
 var socket = io.connect('http://localhost:3000');
 var socket = io();
-weather = "Garun";
 
 var side = 10;
 
@@ -59,3 +60,8 @@ function drawmatrix(matrix) {
 }
 
 socket.on("matrix", drawmatrix)
+
+socket.on("poxir",function bodyClick(){
+        matrix[y][x] == 0;
+});
+matrix.onclick = bodyClick  

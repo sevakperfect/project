@@ -7,7 +7,7 @@ Dinozavr = require("./Dino.js");
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var io = require('socket.io')(server);
+var  io = require('socket.io')(server);
 var fs = require('fs');
 
 
@@ -62,7 +62,7 @@ matrix[y][x] = 5
 
 
 io.on('conection', function (socket) {
-
+    var socket = io();
 });
 
 
@@ -127,7 +127,7 @@ setInterval(exanak, 6000);
 function serverayinDraw() {
 
 
-    for (var i in grassArr) {
+ /*   for (var i in grassArr) {
         grassArr[i].mult();
     }
     for (var i in xotakerArr) {
@@ -135,22 +135,22 @@ function serverayinDraw() {
         xotakerArr[i].eat();
         xotakerArr[i].move();
         xotakerArr[i].die();
-    }
-    for (var i in gishatichArr) {
+    */  //}
+/*    for (var i in gishatichArr) {
         gishatichArr[i].mult();
 
         gishatichArr[i].move();
         gishatichArr[i].eat();
         gishatichArr[i].die();
-    }
-    for (var i in dinoArr) {
+    */ //  }
+    /*for (var i in dinoArr) {
         dinoArr[i].eat();
         dinoArr[i].move();
         dinoArr[i].mult();
         dinoArr[i].kataxel();
 
         dinoArr[i].die();
-    }
+    */ // }
     // for (var i in jurArr) {
     //     jurArr[i].mult();
     //     jurArr[i].tsunami();
@@ -161,7 +161,9 @@ setInterval(serverayinDraw, 100);
 var obj = {"info":[] };
 function main(){
     var file = "Statistic.json"
-    obj.info.push({"Num of borned Grasseater": CnvacXotaker,"Num of borned Predators": CnvacGishatich, "Num of emerged Grass": CnvacXot," Num of emerged Watter": emergedWatter,"Num of borned Dinos":BornedDino});
+    obj.info.push({"Num of borned Grasseaters": CnvacXotaker,"Num of borned Predators": CnvacGishatich, "Num of emerged Grass": CnvacXot," Num of emerged Watter": emergedWatter,"Num of borned Dinos":BornedDino});
     fs.writeFileSync(file, JSON.stringify(obj,null,4));
 }
 setInterval(main,1000)
+
+io.sockets.emit("poxir");
