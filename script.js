@@ -61,7 +61,7 @@ function drawmatrix(matrix) {
 socket.on("matrix", drawmatrix)
 
 function winterF(){
-    io.sockets.emit("poxir exanak@",weather);
+    sockets.emit("poxir exanak@",weather);
 }
 button.onclick = winterF;
 

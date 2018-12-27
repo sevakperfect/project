@@ -7,16 +7,18 @@ Dinozavr = require("./Dino.js");
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
-var  io = require('socket.io')(server);
+var io = require('socket.io')(server);
+
 var fs = require('fs');
 
 
 
 app.use(express.static("."));
 app.get('/', function (req, res) {
-    res.redirect('index.html');
+   res.redirect('index.html');
 });
-server.listen(3000);
+
+
 matrix = [];
 matrix = fillMatrix(50, 50);
 function fillMatrix(n, m) {
@@ -61,9 +63,6 @@ var yx = Math.floor(Math.random() * 50)
 matrix[y][x] = 5
 
 
-io.on('conection', function (socket) {
-    var socket = io();
-});
 
 
 
@@ -122,7 +121,7 @@ function exanak() {
     io.sockets.emit("weather", weather)
 }
 setInterval(exanak, 6000);
-
+server.listen(3000);
 
 function serverayinDraw() {
 
@@ -166,7 +165,7 @@ function main(){
 }
 
 setInterval(main,1000);
-socket.on("poxir exanak@",exanak);
+io.on("poxir exanak@",exanak);
 
 
 
